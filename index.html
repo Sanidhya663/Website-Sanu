@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanidhya | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+
+    /* Floating code blocks like jatinjha.pages.dev */
+    .floating-code {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .code-block {
+      position: absolute;
+      color: rgba(0,255,255,0.2);
+      font-family: monospace;
+      font-size: 14px;
+      white-space: pre;
+      user-select: none;
+    }
+
+    /* Card hover */
+    .card {
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    }
+
+    /* Sidebar */
+    .slide-menu {
+      transition: transform 0.3s ease;
+    }
+    .slide-menu.hidden { transform: translateX(100%); }
+    .slide-menu.show { transform: translateX(0); }
+  </style>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+  <!-- Floating code background -->
+  <div class="floating-code" id="floatingCode"></div>
+
+  <!-- Navbar -->
+  <header class="fixed top-0 w-full bg-gray-800 shadow-md z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+      <h1 class="text-xl font-bold text-teal-400">Sanidhya</h1>
+      <nav class="hidden md:flex space-x-6">
+        <a href="#about" class="hover:text-teal-400">About</a>
+        <a href="#skills" class="hover:text-teal-400">Skills</a>
+        <a href="#projects" class="hover:text-teal-400">Projects</a>
+        <a href="#contact" class="hover:text-teal-400">Contact</a>
+      </nav>
+      <button id="menuBtn" class="md:hidden text-3xl">☰</button>
+    </div>
+  </header>
+
+  <!-- Mobile Sidebar -->
+  <div id="sidebar" class="fixed top-0 right-0 w-2/3 h-full bg-gray-800 p-8 slide-menu hidden z-50">
+    <button id="closeBtn" class="text-3xl mb-6">✖</button>
+    <nav class="flex flex-col space-y-6 text-lg">
+      <a href="#about" class="hover:text-teal-400">About</a>
+      <a href="#skills" class="hover:text-teal-400">Skills</a>
+      <a href="#projects" class="hover:text-teal-400">Projects</a>
+      <a href="#contact" class="hover:text-teal-400">Contact</a>
+    </nav>
+  </div>
+
+  <!-- Hero -->
+  <section class="h-screen flex flex-col justify-center items-center text-center px-6 hero">
+    <h2 class="text-5xl font-extrabold text-teal-400 mb-4">Hi, I'm Sanidhya 👋</h2>
+    <p class="text-lg text-gray-300">A Developer from India | I build websites, games & 3D experiences.</p>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-32 px-8 bg-gray-800 section">
+    <h3 class="text-3xl font-bold mb-6">About Me</h3>
+    <p class="text-gray-300 max-w-3xl mx-auto">I am Sanidhya, a developer passionate about web and game development. I enjoy building immersive projects that combine creativity and technology.</p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-32 px-8 section">
+    <h3 class="text-3xl font-bold text-center mb-10">Skills</h3>
+    <div class="grid md:grid-cols-3 gap-8 text-center">
+      <div class="card p-6 bg-gray-700 rounded-xl shadow-lg">💻 Web Development</div>
+      <div class="card p-6 bg-gray-700 rounded-xl shadow-lg">🎮 Game Development</div>
+      <div class="card p-6 bg-gray-700 rounded-xl shadow-lg">🌐 UI/UX Design</div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-32 px-8 bg-gray-800 section">
+    <h3 class="text-3xl font-bold text-center mb-10">Projects</h3>
+    <div class="grid md:grid-cols-3 gap-8 text-center">
+      <div class="card p-6 bg-gray-700 rounded-xl shadow-lg">🎮 Shooting Game</div>
+      <div class="card p-6 bg-gray-700 rounded-xl shadow-lg">🚗 Flying Car Game</div>
+      <div class="card p-6 bg-gray-700 rounded-xl shadow-lg">🌐 3D Portfolio</div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-32 px-8 text-center section">
+    <h3 class="text-3xl font-bold mb-6">Contact Me</h3>
+    <p>📧 <span class="text-teal-400">youremail@example.com</span></p>
+    <p>📞 <a href="tel:+918920284953" class="text-teal-400 hover:underline">+91 8920284953</a></p>
+    <p>🐙 <span class="text-teal-400">github.com/Sanidhya663</span></p>
+    <p>🔗 <span class="text-teal-400">linkedin.com/in/yourprofile</span></p>
+    <div class="mt-6">
+      <a href="https://wa.me/918920284953" target="_blank" 
+         class="inline-block px-6 py-3 bg-green-500 hover:bg-green-600 rounded-xl shadow-lg transition">
+        💬 Chat on WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <footer class="bg-gray-800 py-6 text-center text-gray-400">
+    © 2025 Sanidhya | Built with ❤️
+  </footer>
+
+  <script>
+    // Sidebar toggle
+    const menuBtn = document.getElementById("menuBtn");
+    const sidebar = document.getElementById("sidebar");
+    const closeBtn = document.getElementById("closeBtn");
+    menuBtn.addEventListener("click", () => { sidebar.classList.remove("hidden"); sidebar.classList.add("show"); });
+    closeBtn.addEventListener("click", () => { sidebar.classList.remove("show"); setTimeout(() => sidebar.classList.add("hidden"), 300); });
+
+    // GSAP scroll animations
+    gsap.registerPlugin(ScrollTrigger);
+    window.addEventListener("load", () => {
+      gsap.from(".hero h2", { opacity:0, y:50, duration:1, ease:"power3.out" });
+      gsap.from(".hero p", { opacity:0, y:50, duration:1, delay:0.3, ease:"power3.out" });
+      gsap.utils.toArray(".section").forEach((section)=>{
+        gsap.from(section, { scrollTrigger:{trigger:section, start:"top 80%"}, opacity:0, y:50, duration:1, ease:"power3.out" });
+      });
+      gsap.utils.toArray(".card").forEach((card,i)=>{
+        gsap.from(card, { scrollTrigger:{trigger:card, start:"top 90%"}, opacity:0, y:30, delay:i*0.2, duration:0.8, ease:"power3.out" });
+      });
+    });
+
+    // Floating code blocks
+    const container = document.getElementById("floatingCode");
+    const numBlocks = 40; // number of floating elements
+    const codeChars = ["<div>","</>","{}","();","if(){ }","let x = 0;","console.log()","<script>","return;"];
+    const blocks = [];
+
+    for(let i=0;i<numBlocks;i++){
+      const block = document.createElement("div");
+      block.classList.add("code-block");
+      block.style.left = Math.random()*100 + "vw";
+      block.style.top = Math.random()*100 + "vh";
+      block.style.fontSize = (10 + Math.random()*20) + "px";
+      block.style.opacity = Math.random()*0.3+0.1;
+      block.textContent = codeChars[Math.floor(Math.random()*codeChars.length)];
+      container.appendChild(block);
+      blocks.push({
+        el:block,
+        x:parseFloat(block.style.left),
+        y:parseFloat(block.style.top),
+        speed: 0.1 + Math.random()*0.5,
+        angle: Math.random()*360
+      });
+    }
+
+    function animateCode(){
+      blocks.forEach(b=>{
+        b.y += b.speed;
+        if(b.y>100) b.y = -5;
+        b.el.style.top = b.y + "vh";
+        b.el.style.left = (b.x + Math.sin(b.angle)*5) + "vw";
+        b.angle += 0.01;
+      });
+      requestAnimationFrame(animateCode);
+    }
+    animateCode();
+  </script>
+</body>
+</html>
